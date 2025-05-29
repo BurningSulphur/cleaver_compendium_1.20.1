@@ -12,8 +12,8 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -22,16 +22,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
-
-import vectorwing.farmersdelight.common.item.ConsumableItem;
-import vectorwing.farmersdelight.common.item.DrinkableItem;
-import vectorwing.farmersdelight.common.registry.ModMaterials;
+import net.minecraft.world.item.Tiers;
 
 
-import net.yirmiri.dungeonsdelight.DungeonsDelight;
 import net.yirmiri.dungeonsdelight.common.item.*;
-import net.yirmiri.dungeonsdelight.common.util.DDMaterials;
-import net.yirmiri.dungeonsdelight.common.util.DDProperties;
+//it just works
+
+import com.teamabnormals.caverns_and_chasms.core.other.CCTiers.CCItemTiers;
+
+
+
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CleaverCompendium.MOD_ID)
@@ -50,25 +51,63 @@ public class CleaverCompendium
 
 
 
-    public static final RegistryObject<Item> IRON_CLEAVER = ITEMS.register("iron_cleaver", () -> new CleaverItem(1.5F, Tiers.IRON, 2.0F, -3.0F, DDProperties.ItemP.IRON));
-    /*
-    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
+    //                                                                                                                      (throw range, teir, attack damage(+1), attack speed(+4) (same), other properties)
+    public static final RegistryObject<Item> EXAMPLE_CLEAVER = ITEMS.register("example_cleaver", () -> new CleaverItem(1.5F, Tiers.IRON, 2.0F, -3.0F, new Item.Properties().durability(157)));
 
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(1).saturationMod(2f).build())));
+    //public static final RegistryObject<Item> LEAD_CLEAVER = ITEMS.register("lead_cleaver", () -> new CleaverItem(1.25F, Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)));
+
+    // Create a DeferredRegister for the items
+    public static final DeferredRegister<Item> OPTIONAL_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+
+    // Register the item only if the required mod is present
+    public static final RegistryObject<Item> SILVER_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
+            ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.SILVER, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> NECROMIUM_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
+            ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.NECROMIUM, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
+            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> LEAD_CLEAVER = ModList.get().isLoaded("oreganized")
+            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths")
+            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
 
 
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
+    public static final RegistryObject<Item> ENDERITE_CLEAVER = ModList.get().isLoaded("enderitemod")
+            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+
+    public static final RegistryObject<Item> GOBBER_CLEAVER = ModList.get().isLoaded("gobber2")
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> GOBBER_CLEAVER_NETHER = ModList.get().isLoaded("gobber2")
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+    public static final RegistryObject<Item> GOBBER_CLEAVER_END = ModList.get().isLoaded("gobber2")
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            : null;
+
+
+
+
+    public static final RegistryObject<CreativeModeTab> CLEAVER_COMPENDIUM_TAB = CREATIVE_MODE_TABS.register("cleaver_compendium_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> EXAMPLE_CLEAVER.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(EXAMPLE_CLEAVER.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
-*/
+
     public CleaverCompendium(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
@@ -83,6 +122,9 @@ public class CleaverCompendium
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
+        // Register the Deferred Register for conditional items
+        OPTIONAL_ITEMS.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -91,20 +133,53 @@ public class CleaverCompendium
 
     }
 
+
+
     private void commonSetup(final FMLCommonSetupEvent event)
     {
     }
 
-    // Add the example block item to the building blocks tab
+ // adding to creative tab if they exist
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if (SILVER_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(SILVER_CLEAVER.get());
+        }
+        if (NECROMIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(NECROMIUM_CLEAVER.get());
+        }
+        if (ELECTRUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(ELECTRUM_CLEAVER.get());
+        }
+        if (LEAD_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(LEAD_CLEAVER.get());
+        }
+        if (ROSE_GOLD_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(ROSE_GOLD_CLEAVER.get());
+        }
+        if (ENDERITE_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(ENDERITE_CLEAVER.get());
+        }
+        if (GOBBER_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(GOBBER_CLEAVER.get());
+        }
+        if (GOBBER_CLEAVER_NETHER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(GOBBER_CLEAVER_NETHER.get());
+        }
+        if (GOBBER_CLEAVER_END != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(GOBBER_CLEAVER_END.get());
+        }
+
     }
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
     }
+
+
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

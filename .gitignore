@@ -22,7 +22,7 @@ eclipse
 run
 
 # other mods
-libs
+# libs
 
 # Files from Forge MDK
 forge*changelog.txt
