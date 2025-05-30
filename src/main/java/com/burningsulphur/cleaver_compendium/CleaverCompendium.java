@@ -65,7 +65,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> NECROMIUM_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
-            ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.NECROMIUM, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("necromium_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.NECROMIUM, 2.5F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
@@ -95,7 +95,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_END = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(3.5F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 

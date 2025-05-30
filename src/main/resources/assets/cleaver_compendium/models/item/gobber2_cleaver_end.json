@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "cleaver_compendium:item/gobber2_cleaver_end"
+  }
+}
