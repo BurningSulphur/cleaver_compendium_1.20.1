@@ -2,6 +2,7 @@ package  com.burningsulphur.cleaver_compendium;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -51,7 +52,7 @@ public class CleaverCompendium
 
 
 
-    //                                                                                                                      (throw range, teir, attack damage(+1), attack speed(+4) (same), other properties)
+    //                                                                                                                      (throw range, teir, attack damage(+2), attack speed(+4) (same), other properties)
     public static final RegistryObject<Item> EXAMPLE_CLEAVER = ITEMS.register("example_cleaver", () -> new CleaverItem(1.5F, Tiers.IRON, 2.0F, -3.0F, new Item.Properties().durability(157)));
 
     //public static final RegistryObject<Item> LEAD_CLEAVER = ITEMS.register("lead_cleaver", () -> new CleaverItem(1.25F, Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)));
@@ -61,48 +62,49 @@ public class CleaverCompendium
 
     // Register the item only if the required mod is present
     public static final RegistryObject<Item> SILVER_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
-            ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.SILVER, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.SILVER, 2F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> NECROMIUM_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
-            ? OPTIONAL_ITEMS.register("necromium_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.NECROMIUM, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("necromium_cleaver", () -> new CleaverItem(1.75F,CCItemTiers.NECROMIUM, 4F, -3.0F, new Item.Properties().durability(2031)))
             : null;
 
     public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.75F,Tiers.IRON, 4F, -2.5F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> LEAD_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.5F,Tiers.IRON, 2F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths")
-            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(2F,Tiers.IRON, 3F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 
     public static final RegistryObject<Item> ENDERITE_CLEAVER = ModList.get().isLoaded("enderitemod")
-            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,Tiers.IRON, 6F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 
     public static final RegistryObject<Item> GOBBER_CLEAVER = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver", () -> new CleaverItem(2.25F,Tiers.IRON, 7F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_NETHER = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(1.25F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(2.5F,Tiers.IRON, 8F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_END = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(3.5F,Tiers.IRON, 2.5F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(3.5F,Tiers.IRON, 9F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 
 
 
     public static final RegistryObject<CreativeModeTab> CLEAVER_COMPENDIUM_TAB = CREATIVE_MODE_TABS.register("cleaver_compendium_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
+            .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
+            .title(Component.translatable("item_group." + MOD_ID + ".tab"))
             .icon(() -> EXAMPLE_CLEAVER.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(EXAMPLE_CLEAVER.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
@@ -135,10 +137,6 @@ public class CleaverCompendium
 
 
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-    }
-
  // adding to creative tab if they exist
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
@@ -170,6 +168,11 @@ public class CleaverCompendium
             event.accept(GOBBER_CLEAVER_END.get());
         }
 
+    }
+
+
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
     }
 
 
