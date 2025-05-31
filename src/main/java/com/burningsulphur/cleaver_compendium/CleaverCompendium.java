@@ -30,6 +30,10 @@ import net.yirmiri.dungeonsdelight.common.item.*;
 //it just works
 
 import com.teamabnormals.caverns_and_chasms.core.other.CCTiers.CCItemTiers;
+import galena.oreganized.index.OItemTiers;
+import net.enderitemc.enderitemod.materials.EnderiteMaterial;
+import com.kwpugh.gobber2.lists.tiers.ToolMaterialTiers;
+
 
 
 
@@ -70,33 +74,33 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.75F,Tiers.IRON, 4F, -2.5F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.75F,OItemTiers.ELECTRUM, 4F, -2.5F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> LEAD_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.5F,Tiers.IRON, 2F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.5F,OItemTiers.LEAD, 2F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
-    public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths")
-            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(2F,Tiers.IRON, 3F, -3.0F, new Item.Properties().durability(168)))
+    public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths") // can't import the tiers from it probably due to it being mcreator.
+            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(2F,Tiers.GOLD, 3F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 
     public static final RegistryObject<Item> ENDERITE_CLEAVER = ModList.get().isLoaded("enderitemod")
-            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,Tiers.IRON, 6F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,EnderiteMaterial.ENDERITE, 6F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 
     public static final RegistryObject<Item> GOBBER_CLEAVER = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver", () -> new CleaverItem(2.25F,Tiers.IRON, 7F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver", () -> new CleaverItem(2.25F,ToolMaterialTiers.OVERWORLD_GOBBER, 7F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_NETHER = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(2.5F,Tiers.IRON, 8F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(2.5F,ToolMaterialTiers.NETHER_GOBBER, 8F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_END = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(3.5F,Tiers.IRON, 9F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_end", () -> new CleaverItem(3.5F,ToolMaterialTiers.END_GOBBER, 9F, -3.0F, new Item.Properties().durability(168)))
             : null;
 
 

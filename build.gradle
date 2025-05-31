@@ -171,6 +171,9 @@ dependencies {
     implementation fg.deobf("curse.maven:dungeons-delight-1258923:6585595")
 
     implementation fg.deobf("curse.maven:caverns-and-chasms-438005:6040957")
+    implementation fg.deobf("curse.maven:oreganized-769203:6373702")
+    implementation fg.deobf("curse.maven:enderite-mod-for-forge-401284:5017690")
+    implementation fg.deobf("curse.maven:gobber-301700:5329818")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
