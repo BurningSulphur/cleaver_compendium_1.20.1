@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "modid": "caverns_and_chasms",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:smithing_transform",
+    "addition": {
+      "tag": "forge:ingots/necromium"
+    },
+    "base": {
+      "item": "dungeonsdelight:diamond_cleaver"
+    },
+    "result": {
+      "item": "cleaver_compendium:necromium_cleaver"
+    },
+    "template": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    }
+}

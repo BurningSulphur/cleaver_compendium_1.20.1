@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "modid": "caverns_and_chasms",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": {
+        "tag": "forge:ingots/silver"
+      },
+      "@": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "##",
+      "#@"
+    ],
+    "result": {
+      "item": "cleaver_compendium:silver_cleaver"
+    },
+    "show_notification": true
+}

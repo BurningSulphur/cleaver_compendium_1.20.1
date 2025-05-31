@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "modid": "cavesanddepths",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:smithing_transform",
+    "addition": {
+      "item": "cavesanddepths:rose_gold_ingot"
+    },
+    "base": {
+      "item": "dungeonsdelight:golden_cleaver"
+    },
+    "result": {
+      "item": "cleaver_compendium:rose_gold_cleaver"
+    },
+    "template": {
+      "item": "cavesanddepths:rosegoldupgradesmithingtemplate"
+    }
+}

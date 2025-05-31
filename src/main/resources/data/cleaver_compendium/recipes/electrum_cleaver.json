@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "modid": "oreganized",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:smithing_transform",
+    "addition": {
+      "item": "oreganized:electrum_ingot"
+    },
+    "base": {
+      "item": "dungeonsdelight:diamond_cleaver"
+    },
+    "result": {
+      "item": "cleaver_compendium:electrum_cleaver"
+    },
+    "template": {
+      "item": "oreganized:electrum_upgrade_smithing_template"
+    }
+}
