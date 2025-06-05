@@ -1,6 +1,9 @@
 package  com.burningsulphur.cleaver_compendium;
 
+import appeng.items.tools.fluix.FluixToolType;
+import appeng.items.tools.quartz.QuartzToolType;
 import com.mojang.logging.LogUtils;
+import com.stal111.forbidden_arcanus.common.item.ModTiers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,6 +24,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.salju.kobolds.init.KoboldsItemTiers;
 import org.slf4j.Logger;
 
 import net.minecraft.world.item.Tiers;
@@ -33,11 +37,7 @@ import com.teamabnormals.caverns_and_chasms.core.other.CCTiers.CCItemTiers;
 import galena.oreganized.index.OItemTiers;
 import net.enderitemc.enderitemod.materials.EnderiteMaterial;
 import com.kwpugh.gobber2.lists.tiers.ToolMaterialTiers;
-import  net.salju.kobolds.init.KoboldsItems;
-
-
-
-
+import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -105,12 +105,44 @@ public class CleaverCompendium
             : null;
 
 
+    // add ember silver, dawnstone and silex
+
+
+
+
+    //batch 2:
+
     public static final RegistryObject<Item> KOBOLD_IRON_CLEAVER = ModList.get().isLoaded("kobolds")
-            ? OPTIONAL_ITEMS.register("kobold_iron_cleaver", () -> new CleaverItem(2.0F,Tiers.IRON, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("kobold_iron_cleaver", () -> new CleaverItem(2.0F, KoboldsItemTiers.KOBOLD, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
+
+    //AquacultureAPI.MATS.NEPTUNIUM
+    // check out the neptunium shovel to get some ideas on how i could create a neptunium cleaver where the throwing distance is massive when under water
+    public static final RegistryObject<Item> NEPTUNIUM_CLEAVER = ModList.get().isLoaded("aquaculture")
+            ? OPTIONAL_ITEMS.register("neptunium_cleaver", () -> new CleaverItem(2.0F, AquacultureAPI.MATS.NEPTUNIUM, 1.5F, -2.5F, new Item.Properties().durability(1096)))
             : null;
 
 
+    public static final RegistryObject<Item> CERTUS_QUARTZ_CLEAVER = ModList.get().isLoaded("ae2")
+            ? OPTIONAL_ITEMS.register("certus_quartz_cleaver", () -> new CleaverItem(2.0F, QuartzToolType.CERTUS.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
 
+    public static final RegistryObject<Item> NETHER_QUARTZ_CLEAVER = ModList.get().isLoaded("ae2")
+            ? OPTIONAL_ITEMS.register("nether_quartz_cleaver", () -> new CleaverItem(2.0F,QuartzToolType.NETHER.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
+
+    //add the looting 1 if you can. look at the fluix axe item class extension
+    public static final RegistryObject<Item> FLUIX_CLEAVER = ModList.get().isLoaded("ae2")
+            ? OPTIONAL_ITEMS.register("fluix_cleaver", () -> new CleaverItem(2.0F, FluixToolType.FLUIX.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
+
+    public static final RegistryObject<Item> DRACO_ARCANUS_CLEAVER = ModList.get().isLoaded("forbidden_arcanus")
+            ? OPTIONAL_ITEMS.register("draco_arcanus_cleaver", () -> new CleaverItem(2.0F,ModTiers.DRACO_ARCANUS, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
+
+    public static final RegistryObject<Item> REINFORCED_DEORUM_CLEAVER = ModList.get().isLoaded("forbidden_arcanus")
+            ? OPTIONAL_ITEMS.register("reinforced_deorum_cleaver", () -> new CleaverItem(2.0F, ModTiers.REINFORCED_DEORUM, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            : null;
 
     public static final RegistryObject<CreativeModeTab> CLEAVER_COMPENDIUM_TAB = CREATIVE_MODE_TABS.register("cleaver_compendium_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
@@ -177,8 +209,27 @@ public class CleaverCompendium
         if (GOBBER_CLEAVER_END != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(GOBBER_CLEAVER_END.get());
         }
+        //batch 2
         if (KOBOLD_IRON_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(KOBOLD_IRON_CLEAVER.get());
+        }
+        if (NEPTUNIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(NEPTUNIUM_CLEAVER.get());
+        }
+        if (CERTUS_QUARTZ_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(CERTUS_QUARTZ_CLEAVER.get());
+        }
+        if (NETHER_QUARTZ_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(NETHER_QUARTZ_CLEAVER.get());
+        }
+        if (FLUIX_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(FLUIX_CLEAVER.get());
+        }
+        if (DRACO_ARCANUS_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(DRACO_ARCANUS_CLEAVER.get());
+        }
+        if (REINFORCED_DEORUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(REINFORCED_DEORUM_CLEAVER.get());
         }
 
     }
