@@ -136,7 +136,7 @@ side="BOTH"
 [[dependencies."${mod_id}"]]
 modId="forbidden_arcanus"
 mandatory=false
-versionRange="[2.2.6,)"
+versionRange="[1.20.1-2.2.6,)"
 ordering="AFTER"
 side="BOTH"
 

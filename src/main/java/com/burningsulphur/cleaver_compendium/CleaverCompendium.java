@@ -88,7 +88,7 @@ public class CleaverCompendium
 
 
     public static final RegistryObject<Item> ENDERITE_CLEAVER = ModList.get().isLoaded("enderitemod")
-            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,EnderiteMaterial.ENDERITE, 6F, -3.0F, new Item.Properties().durability(4096).fireResistant()))
+            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(3F,EnderiteMaterial.ENDERITE, 6F, -3.0F, new Item.Properties().durability(4096).fireResistant()))
             : null;
 
 
