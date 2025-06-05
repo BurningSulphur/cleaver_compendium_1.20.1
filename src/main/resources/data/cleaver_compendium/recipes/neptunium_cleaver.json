@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": {
+        "tag": "forge:ingots/neptunium"
+      },
+      "@": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "##",
+      "#@"
+    ],
+    "result": {
+      "item": "cleaver_compendium:neptunium_cleaver"
+    },
+    "show_notification": true
+}

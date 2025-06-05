@@ -71,7 +71,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> NECROMIUM_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
-            ? OPTIONAL_ITEMS.register("necromium_cleaver", () -> new CleaverItem(1.75F,CCItemTiers.NECROMIUM, 4F, -3.0F, new Item.Properties().durability(2031)))
+            ? OPTIONAL_ITEMS.register("necromium_cleaver", () -> new CleaverItem(1.75F,CCItemTiers.NECROMIUM, 4F, -3.0F, new Item.Properties().durability(2031).fireResistant()))
             : null;
 
     public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
@@ -88,7 +88,7 @@ public class CleaverCompendium
 
 
     public static final RegistryObject<Item> ENDERITE_CLEAVER = ModList.get().isLoaded("enderitemod")
-            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,EnderiteMaterial.ENDERITE, 6F, -3.0F, new Item.Properties().durability(4096)))
+            ? OPTIONAL_ITEMS.register("enderite_cleaver", () -> new CleaverItem(2F,EnderiteMaterial.ENDERITE, 6F, -3.0F, new Item.Properties().durability(4096).fireResistant()))
             : null;
 
 
@@ -97,7 +97,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_NETHER = ModList.get().isLoaded("gobber2")
-            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(2.5F,ToolMaterialTiers.NETHER_GOBBER, 8F, -3.0F, new Item.Properties().durability(5200)))
+            ? OPTIONAL_ITEMS.register("gobber2_cleaver_nether", () -> new CleaverItem(2.5F,ToolMaterialTiers.NETHER_GOBBER, 8F, -3.0F, new Item.Properties().durability(5200).fireResistant()))
             : null;
 
     public static final RegistryObject<Item> GOBBER_CLEAVER_END = ModList.get().isLoaded("gobber2")
@@ -111,37 +111,37 @@ public class CleaverCompendium
 
 
     //batch 2:
-
+    //                                                                                    (throw range, teir, attack damage(+2), attack speed(+4) (same), other properties)
     public static final RegistryObject<Item> KOBOLD_IRON_CLEAVER = ModList.get().isLoaded("kobolds")
-            ? OPTIONAL_ITEMS.register("kobold_iron_cleaver", () -> new CleaverItem(2.0F, KoboldsItemTiers.KOBOLD, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("kobold_iron_cleaver", () -> new CleaverItem(1.5F, KoboldsItemTiers.KOBOLD, 2F, -2.5F, new Item.Properties().durability(1096)))
             : null;
 
     //AquacultureAPI.MATS.NEPTUNIUM
     // check out the neptunium shovel to get some ideas on how i could create a neptunium cleaver where the throwing distance is massive when under water
     public static final RegistryObject<Item> NEPTUNIUM_CLEAVER = ModList.get().isLoaded("aquaculture")
-            ? OPTIONAL_ITEMS.register("neptunium_cleaver", () -> new CleaverItem(2.0F, AquacultureAPI.MATS.NEPTUNIUM, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("neptunium_cleaver", () -> new CleaverItem(1.75F, AquacultureAPI.MATS.NEPTUNIUM, 4.5F, -3.0F, new Item.Properties().durability(1796)))
             : null;
 
 
     public static final RegistryObject<Item> CERTUS_QUARTZ_CLEAVER = ModList.get().isLoaded("ae2")
-            ? OPTIONAL_ITEMS.register("certus_quartz_cleaver", () -> new CleaverItem(2.0F, QuartzToolType.CERTUS.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("certus_quartz_cleaver", () -> new CleaverItem(1.5F, QuartzToolType.CERTUS.getToolTier(), 3F, -3.0F, new Item.Properties().durability(250)))
             : null;
 
     public static final RegistryObject<Item> NETHER_QUARTZ_CLEAVER = ModList.get().isLoaded("ae2")
-            ? OPTIONAL_ITEMS.register("nether_quartz_cleaver", () -> new CleaverItem(2.0F,QuartzToolType.NETHER.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("nether_quartz_cleaver", () -> new CleaverItem(1.5F,QuartzToolType.NETHER.getToolTier(), 3F, -3.0F, new Item.Properties().durability(250)))
             : null;
 
     //add the looting 1 if you can. look at the fluix axe item class extension
     public static final RegistryObject<Item> FLUIX_CLEAVER = ModList.get().isLoaded("ae2")
-            ? OPTIONAL_ITEMS.register("fluix_cleaver", () -> new CleaverItem(2.0F, FluixToolType.FLUIX.getToolTier(), 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("fluix_cleaver", () -> new CleaverItem(1.5F, FluixToolType.FLUIX.getToolTier(), 3.4F, -3.0F, new Item.Properties().durability(750)))
             : null;
 
     public static final RegistryObject<Item> DRACO_ARCANUS_CLEAVER = ModList.get().isLoaded("forbidden_arcanus")
-            ? OPTIONAL_ITEMS.register("draco_arcanus_cleaver", () -> new CleaverItem(2.0F,ModTiers.DRACO_ARCANUS, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("draco_arcanus_cleaver", () -> new CleaverItem(1F,ModTiers.DRACO_ARCANUS, 9F, -2.8F, new Item.Properties().durability(2661)))
             : null;
 
     public static final RegistryObject<Item> REINFORCED_DEORUM_CLEAVER = ModList.get().isLoaded("forbidden_arcanus")
-            ? OPTIONAL_ITEMS.register("reinforced_deorum_cleaver", () -> new CleaverItem(2.0F, ModTiers.REINFORCED_DEORUM, 1.5F, -2.5F, new Item.Properties().durability(1096)))
+            ? OPTIONAL_ITEMS.register("reinforced_deorum_cleaver", () -> new CleaverItem(2.0F, ModTiers.REINFORCED_DEORUM, 4.5F, -3.0F, new Item.Properties().durability(2561)))
             : null;
 
     public static final RegistryObject<CreativeModeTab> CLEAVER_COMPENDIUM_TAB = CREATIVE_MODE_TABS.register("cleaver_compendium_tab", () -> CreativeModeTab.builder()

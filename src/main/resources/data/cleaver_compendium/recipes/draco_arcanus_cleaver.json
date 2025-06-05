@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "modid": "forbidden_arcanus",
+      "type": "forge:mod_loaded"
+    }
+  ],
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "forbidden_arcanus:dragon_scale"
+    },
+    "@": {
+      "item": "forbidden_arcanus:draco_arcanus_staff"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+    "pattern": [
+      "#D",
+      "#@"
+    ],
+  "result": {
+    "item": "cleaver_compendium:draco_arcanus_cleaver"
+  },
+    "show_notification": true
+}
