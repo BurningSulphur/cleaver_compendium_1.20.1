@@ -10,7 +10,7 @@
     "item": "minecraft:iron_ingot"
   },
   "base": {
-    "item": "dungeonsdelight:netherite_cleaver"
+    "item": "dungeonsdelight:iron_cleaver"
   },
   "result": {
     "item": "cleaver_compendium:kobold_iron_cleaver"
