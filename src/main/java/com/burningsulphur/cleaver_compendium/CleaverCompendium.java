@@ -2,6 +2,7 @@ package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.fluix.FluixToolType;
 import appeng.items.tools.quartz.QuartzToolType;
+import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
 import com.mojang.logging.LogUtils;
 import com.stal111.forbidden_arcanus.common.item.ModTiers;
 import net.minecraft.core.registries.Registries;
@@ -119,7 +120,7 @@ public class CleaverCompendium
     //AquacultureAPI.MATS.NEPTUNIUM
     // check out the neptunium shovel to get some ideas on how i could create a neptunium cleaver where the throwing distance is massive when under water
     public static final RegistryObject<Item> NEPTUNIUM_CLEAVER = ModList.get().isLoaded("aquaculture")
-            ? OPTIONAL_ITEMS.register("neptunium_cleaver", () -> new CleaverItem(1.75F, AquacultureAPI.MATS.NEPTUNIUM, 4.5F, -3.0F, new Item.Properties().durability(1796)))
+            ? OPTIONAL_ITEMS.register("neptunium_cleaver", () -> new NeptuniumCleaverItem(1.5F, AquacultureAPI.MATS.NEPTUNIUM, 4.5F, -3.0F, new Item.Properties().durability(1796)))
             : null;
 
 
