@@ -13,6 +13,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -21,6 +22,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -45,7 +47,6 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 import net.minecraftforge.fml.config.ModConfig;
 
-import static com.burningsulphur.cleaver_compendium.Config.silverCleaverEnable;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -57,10 +58,22 @@ public class CleaverCompendium
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+   // the variable stuff from the config -----------------------------------------------------------------
+    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+
+    private static final ForgeConfigSpec.BooleanValue SILVER_CLEAVER_ENABLE = BUILDER
+            .comment("Controls if the cleavers are registered when their mods are installed. There is no way to register them without their mod installed")
+            .define("silverCleaverEnable", true);
+
+    static final ForgeConfigSpec SPEC = BUILDER.build();
+
+    public static boolean silverCleaverEnable;
+    //------------------------------------------------------------------------------------------------------
+
     public CleaverCompendium(FMLJavaModLoadingContext context)
     {
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SPEC);
         IEventBus modEventBus = context.getModEventBus();
 
         // Register the commonSetup method for modloading
@@ -83,6 +96,17 @@ public class CleaverCompendium
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
+
+    // attempting to move the config into here so that it is all executed before the item registration so we can get those bools
+
+    @SubscribeEvent
+    static void onLoad(final ModConfigEvent event)
+    {
+        silverCleaverEnable = SILVER_CLEAVER_ENABLE.get();
+    }
+   // is this getting it?
+
+
 
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
