@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "cleaver_compendium:neptunium_cleaver",
+      "required": false
+    }
+  ]
+}

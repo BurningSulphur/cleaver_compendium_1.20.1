@@ -2,6 +2,7 @@ package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.fluix.FluixToolType;
 import appeng.items.tools.quartz.QuartzToolType;
+import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
 import com.mojang.logging.LogUtils;
 import com.stal111.forbidden_arcanus.common.item.ModTiers;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -41,6 +43,9 @@ import com.kwpugh.gobber2.lists.tiers.ToolMaterialTiers;
 import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 
+import net.minecraftforge.fml.config.ModConfig;
+
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CleaverCompendium.MOD_ID)
 public class CleaverCompendium
@@ -49,6 +54,34 @@ public class CleaverCompendium
     public static final String MOD_ID = "cleaver_compendium";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    public CleaverCompendium(FMLJavaModLoadingContext context)
+    {
+        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        IEventBus modEventBus = context.getModEventBus();
+
+        // Register the commonSetup method for modloading
+        modEventBus.addListener(this::commonSetup);
+
+
+        // Register the Deferred Register to the mod event bus so blocks get registered
+        BLOCKS.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so items get registered
+        ITEMS.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so tabs get registered
+        CREATIVE_MODE_TABS.register(modEventBus);
+
+        // Register the Deferred Register for conditional items
+        OPTIONAL_ITEMS.register(modEventBus);
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
+
+        // Register the item to a creative tab
+        modEventBus.addListener(this::addCreative);
+    }
+
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
@@ -66,8 +99,11 @@ public class CleaverCompendium
     // Create a DeferredRegister for the items
     public static final DeferredRegister<Item> OPTIONAL_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
+    // see if you can make a config to disable the items even if the mod is installed. all true by default, if false it won't work
+    // test bool to test config
+    //public static boolean CleaverEnable = true;
     // Register the item only if the required mod is present
-    public static final RegistryObject<Item> SILVER_CLEAVER = ModList.get().isLoaded("caverns_and_chasms")
+    public static final RegistryObject<Item> SILVER_CLEAVER = (ModList.get().isLoaded("caverns_and_chasms") && Config.silverCleaverEnable)
             ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.SILVER, 2F, -3.0F, new Item.Properties().durability(157)))
             : null;
 
@@ -134,7 +170,7 @@ public class CleaverCompendium
 
     //add the looting 1 if you can. look at the fluix axe item class extension
     public static final RegistryObject<Item> FLUIX_CLEAVER = ModList.get().isLoaded("ae2")
-            ? OPTIONAL_ITEMS.register("fluix_cleaver", () -> new CleaverItem(1.5F, FluixToolType.FLUIX.getToolTier(), 3.4F, -3.0F, new Item.Properties().durability(750)))
+            ? OPTIONAL_ITEMS.register("fluix_cleaver", () -> new FluixCleaverItem(new Item.Properties().durability(750)))
             : null;
 
     public static final RegistryObject<Item> DRACO_ARCANUS_CLEAVER = ModList.get().isLoaded("forbidden_arcanus")
@@ -153,30 +189,7 @@ public class CleaverCompendium
                 output.accept(EXAMPLE_CLEAVER.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
-    public CleaverCompendium(FMLJavaModLoadingContext context)
-    {
-        IEventBus modEventBus = context.getModEventBus();
 
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
-
-        // Register the Deferred Register for conditional items
-        OPTIONAL_ITEMS.register(modEventBus);
-
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
-    }
 
 
 
