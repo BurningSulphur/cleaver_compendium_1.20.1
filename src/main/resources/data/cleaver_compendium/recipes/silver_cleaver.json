@@ -4,8 +4,7 @@
       "modid": "caverns_and_chasms",
       "type": "forge:mod_loaded"
     },{
-      "type": "cleaver_compendium:config_condition",
-      "configKey": "silverCleaverEnable"
+      "type": "cleaver_compendium:silver_cleaver_enable"
     }
   ],
     "type": "minecraft:crafting_shaped",

@@ -1,6 +1,7 @@
 package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.quartz.QuartzToolType;
+import com.burningsulphur.cleaver_compendium.configs.SilverCleaverConfig;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
 import com.mojang.logging.LogUtils;
@@ -13,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -46,7 +46,7 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 import net.minecraftforge.fml.config.ModConfig;
 
-import static com.burningsulphur.cleaver_compendium.Config.silverCleaverEnable;
+import static com.burningsulphur.cleaver_compendium.Config.silverCleaverDisable;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -185,7 +185,7 @@ public class CleaverCompendium
     // adding to creative tab if they exist
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (SILVER_CLEAVER != null && silverCleaverEnable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (SILVER_CLEAVER != null && !silverCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(SILVER_CLEAVER.get());
         }
         if (NECROMIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
@@ -256,6 +256,10 @@ public class CleaverCompendium
         // Register the Deferred Register for conditional items
         OPTIONAL_ITEMS.register(modEventBus);
 
+        //where all my config stuff goes
+
+        CraftingHelper.register(new SilverCleaverConfig.Serializer());
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -263,10 +267,8 @@ public class CleaverCompendium
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
-        CraftingHelper.register(new ConfigValueCondition.Serializer());
-        ConditionalRecipe.Serializer.register("config_condition", Config.ConfigCondition::new);
     }
 
 

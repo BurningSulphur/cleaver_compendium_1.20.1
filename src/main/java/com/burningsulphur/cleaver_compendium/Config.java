@@ -1,8 +1,6 @@
 package com.burningsulphur.cleaver_compendium;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
@@ -14,53 +12,34 @@ import org.slf4j.LoggerFactory;
 public class Config
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(Config.class);
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    private static final ForgeConfigSpec.Builder COMMON_BUILDER  = new ForgeConfigSpec.Builder();
+    public static ForgeConfigSpec COMMON_CONFIG;
 
-    private static final ForgeConfigSpec.BooleanValue SILVER_CLEAVER_ENABLE = BUILDER
-            .comment("Controls if the cleavers are registered when their mods are installed. There is no way to register them without their mod installed")
-            .define("silverCleaverEnable", true);
+    public static ForgeConfigSpec.BooleanValue SILVER_CLEAVER_DISABLE;
+    static {
+        ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
+        COMMON_BUILDER.comment("Enable/Disable Cleavers");
+        SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver from Cavers and chasms(Default: false)").define("silver_cleaver_disable", true);
+        COMMON_CONFIG = COMMON_BUILDER.build();
 
+    }
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static ForgeConfigSpec.BooleanValue getConfigOption(String key) {
-        if ("silverCleaverEnable".equals(key)) {
-            return SILVER_CLEAVER_ENABLE;
+        if ("silver_cleaver_disable".equals(key)) {
+            return SILVER_CLEAVER_DISABLE;
         }
         LOGGER.warn("Unknown configuration key requested: {}", key); // Log a warning for unknown keys
         return null;
     }
 
-    public static boolean silverCleaverEnable;
+    public static boolean silverCleaverDisable;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
-        silverCleaverEnable = SILVER_CLEAVER_ENABLE.get();    }
-
-
-    public static class ConfigCondition implements ICondition {
-        private final String configKey;
-
-        public ConfigCondition(String configKey) {
-            this.configKey = configKey;
-        }
-
-        @Override
-        public boolean test() {
-            BooleanValue configValue = getConfigOption(configKey);
-            return configValue != null && configValue.get();
-        }
-
-        @Override
-        public ResourceLocation getID() {
-            return new ResourceLocation("cleaver_compendium", "config_condition");
-        }
-
-        @Override
-        public boolean test(IContext iContext) {
-            return false;
-        }
+        silverCleaverDisable = SILVER_CLEAVER_DISABLE.get();
     }
+
 }
