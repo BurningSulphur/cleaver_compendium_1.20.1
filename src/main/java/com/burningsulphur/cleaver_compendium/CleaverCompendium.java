@@ -3,6 +3,7 @@ package  com.burningsulphur.cleaver_compendium;
 import appeng.items.tools.quartz.QuartzToolType;
 import com.burningsulphur.cleaver_compendium.configs.SilverCleaverConfig;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
+import com.burningsulphur.cleaver_compendium.util.LeadCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
 import com.mojang.logging.LogUtils;
 import com.stal111.forbidden_arcanus.common.item.ModTiers;
@@ -98,7 +99,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> LEAD_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new CleaverItem(1.5F,OItemTiers.LEAD, 2F, -3.0F, new Item.Properties().durability(168)))
+            ? OPTIONAL_ITEMS.register("lead_cleaver", () -> new LeadCleaverItem(new Item.Properties()))
             : null;
 
     public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths") // can't import the tiers from it probably due to it being mcreator.
