@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -44,6 +45,8 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 
 import net.minecraftforge.fml.config.ModConfig;
+
+import static com.burningsulphur.cleaver_compendium.Config.silverCleaverEnable;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -121,12 +124,10 @@ public class CleaverCompendium
             : null;
 
 
-    // add ember silver, dawnstone and silex
 
 
 
-
-    //batch 2:
+    //batch 2: ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //                                                                                    (throw range, teir, attack damage(+2), attack speed(+4) (same), other properties)
     public static final RegistryObject<Item> KOBOLD_IRON_CLEAVER = ModList.get().isLoaded("kobolds")
             ? OPTIONAL_ITEMS.register("kobold_iron_cleaver", () -> new CleaverItem(1.5F, KoboldsItemTiers.KOBOLD, 2F, -2.5F, new Item.Properties().durability(1096)))
@@ -160,6 +161,15 @@ public class CleaverCompendium
             ? OPTIONAL_ITEMS.register("reinforced_deorum_cleaver", () -> new CleaverItem(2.0F, ModTiers.REINFORCED_DEORUM, 4.5F, -3.0F, new Item.Properties().durability(2561)))
             : null;
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // add ember silver, dawnstone and silex
+
+
+
+
+
     public static final RegistryObject<CreativeModeTab> CLEAVER_COMPENDIUM_TAB = CREATIVE_MODE_TABS.register("cleaver_compendium_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
             .title(Component.translatable("item_group." + MOD_ID + ".tab"))
@@ -175,7 +185,7 @@ public class CleaverCompendium
     // adding to creative tab if they exist
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (SILVER_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (SILVER_CLEAVER != null && silverCleaverEnable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(SILVER_CLEAVER.get());
         }
         if (NECROMIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
@@ -254,6 +264,8 @@ public class CleaverCompendium
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        CraftingHelper.register(new ConfigValueCondition.Serializer());
     }
 
 
