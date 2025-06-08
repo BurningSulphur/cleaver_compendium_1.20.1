@@ -20,7 +20,7 @@ public class Config
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
         COMMON_BUILDER.comment("Enable/Disable Cleavers");
-        SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver from Cavers and chasms(Default: false)").define("silver_cleaver_disable", true);
+        SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver from Cavers and chasms(Default: false)").define("silver_cleaver_disable", false);
         COMMON_CONFIG = COMMON_BUILDER.build();
 
     }
