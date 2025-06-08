@@ -1,6 +1,5 @@
 package  com.burningsulphur.cleaver_compendium;
 
-import appeng.items.tools.fluix.FluixToolType;
 import appeng.items.tools.quartz.QuartzToolType;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
@@ -14,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -266,6 +266,7 @@ public class CleaverCompendium
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
         CraftingHelper.register(new ConfigValueCondition.Serializer());
+        ConditionalRecipe.Serializer.register("config_condition", Config.ConfigCondition::new);
     }
 
 

@@ -1,6 +1,8 @@
 package com.burningsulphur.cleaver_compendium;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
@@ -38,5 +40,27 @@ public class Config
         silverCleaverEnable = SILVER_CLEAVER_ENABLE.get();    }
 
 
+    public static class ConfigCondition implements ICondition {
+        private final String configKey;
 
+        public ConfigCondition(String configKey) {
+            this.configKey = configKey;
+        }
+
+        @Override
+        public boolean test() {
+            BooleanValue configValue = getConfigOption(configKey);
+            return configValue != null && configValue.get();
+        }
+
+        @Override
+        public ResourceLocation getID() {
+            return new ResourceLocation("cleaver_compendium", "config_condition");
+        }
+
+        @Override
+        public boolean test(IContext iContext) {
+            return false;
+        }
+    }
 }
