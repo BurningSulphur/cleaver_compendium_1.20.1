@@ -3,6 +3,8 @@
     {
       "modid": "oreganized",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:olead_cleaver_disable"
     }
   ],
     "type": "minecraft:crafting_shaped",

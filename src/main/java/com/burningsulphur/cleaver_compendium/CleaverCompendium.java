@@ -1,6 +1,7 @@
 package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.quartz.QuartzToolType;
+import com.burningsulphur.cleaver_compendium.configs.OLeadCleaverConfig;
 import com.burningsulphur.cleaver_compendium.configs.SilverCleaverConfig;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.LeadCleaverItem;
@@ -47,6 +48,7 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 import net.minecraftforge.fml.config.ModConfig;
 
+import static com.burningsulphur.cleaver_compendium.Config.OLeadCleaverDisable;
 import static com.burningsulphur.cleaver_compendium.Config.silverCleaverDisable;
 
 
@@ -195,7 +197,7 @@ public class CleaverCompendium
         if (ELECTRUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(ELECTRUM_CLEAVER.get());
         }
-        if (LEAD_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (LEAD_CLEAVER != null && !OLeadCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(LEAD_CLEAVER.get());
         }
         if (ROSE_GOLD_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
@@ -260,6 +262,8 @@ public class CleaverCompendium
         //where all my config stuff goes
 
         CraftingHelper.register(new SilverCleaverConfig.Serializer());
+        CraftingHelper.register(new OLeadCleaverConfig.Serializer());
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

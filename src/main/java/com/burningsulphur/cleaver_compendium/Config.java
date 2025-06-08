@@ -15,31 +15,38 @@ public class Config
     private static final ForgeConfigSpec.Builder COMMON_BUILDER  = new ForgeConfigSpec.Builder();
     public static ForgeConfigSpec COMMON_CONFIG;
 
+
+    //----------------------------------------------------------------------------------------------------ONE
     public static ForgeConfigSpec.BooleanValue SILVER_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue OLEAD_CLEAVER_DISABLE;
+
+    //------------------------------------------------------------------------------------------------------
+
     static {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 
         COMMON_BUILDER.comment("Enable/Disable Cleavers");
-        SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver from Cavers and chasms(Default: false)").define("silver_cleaver_disable", false);
+        //--------------------------------------------------------------------------------------------TWO
+        SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver from Caverns and Chasms (Default: false)").define("silver_cleaver_disable", false);
+        OLEAD_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Lead cleaver from Oreganized (Default: false)").define("olead_cleaver_disable", false);
+        //------------------------------------------------------------------------------------------------
+
         COMMON_CONFIG = COMMON_BUILDER.build();
 
     }
 
-
-    public static ForgeConfigSpec.BooleanValue getConfigOption(String key) {
-        if ("silver_cleaver_disable".equals(key)) {
-            return SILVER_CLEAVER_DISABLE;
-        }
-        LOGGER.warn("Unknown configuration key requested: {}", key); // Log a warning for unknown keys
-        return null;
-    }
-
+    //-----------------------------------------------------------------------------------------------THREE
     public static boolean silverCleaverDisable;
+    public static boolean OLeadCleaverDisable;
+    //-------------------------------------------------------------------------------------------------
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
+        //------------------------------------------------------------------------------------------FOUR
         silverCleaverDisable = SILVER_CLEAVER_DISABLE.get();
+        OLeadCleaverDisable = OLEAD_CLEAVER_DISABLE.get();
+        //-------------------------------------------------------------------------------------------
     }
 
 }
