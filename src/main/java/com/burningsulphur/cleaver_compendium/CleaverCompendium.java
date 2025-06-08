@@ -45,6 +45,8 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 import net.minecraftforge.fml.config.ModConfig;
 
+import static com.burningsulphur.cleaver_compendium.Config.silverCleaverEnable;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CleaverCompendium.MOD_ID)
@@ -103,7 +105,7 @@ public class CleaverCompendium
     // test bool to test config
     //public static boolean CleaverEnable = true;
     // Register the item only if the required mod is present
-    public static final RegistryObject<Item> SILVER_CLEAVER = (ModList.get().isLoaded("caverns_and_chasms") && Config.silverCleaverEnable)
+    public static final RegistryObject<Item> SILVER_CLEAVER = (ModList.get().isLoaded("caverns_and_chasms") && silverCleaverEnable)
             ? OPTIONAL_ITEMS.register("silver_cleaver", () -> new CleaverItem(1.25F,CCItemTiers.SILVER, 2F, -3.0F, new Item.Properties().durability(157)))
             : null;
 
