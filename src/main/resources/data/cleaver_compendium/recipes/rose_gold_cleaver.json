@@ -3,6 +3,8 @@
     {
       "modid": "cavesanddepths",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:dcrose_gold_cleaver_disable"
     }
   ],
     "type": "minecraft:smithing_transform",

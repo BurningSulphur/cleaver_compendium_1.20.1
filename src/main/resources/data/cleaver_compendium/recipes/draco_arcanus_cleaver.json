@@ -3,6 +3,8 @@
     {
       "modid": "forbidden_arcanus",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:draco_arcanus_cleaver_disable"
     }
   ],
     "type": "minecraft:crafting_shaped",

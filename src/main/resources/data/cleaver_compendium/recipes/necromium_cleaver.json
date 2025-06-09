@@ -3,6 +3,8 @@
     {
       "modid": "caverns_and_chasms",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:ccnecromium_cleaver_disable"
     }
   ],
     "type": "minecraft:smithing_transform",

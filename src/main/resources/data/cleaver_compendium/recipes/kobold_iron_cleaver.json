@@ -3,6 +3,8 @@
     {
       "modid": "kobolds",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:kobold_iron_cleaver_disable"
     }
   ],
   "type": "minecraft:smithing_transform",

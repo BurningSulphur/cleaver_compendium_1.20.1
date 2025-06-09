@@ -3,6 +3,8 @@
     {
       "modid": "oreganized",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:oelectrum_cleaver_disable"
     }
   ],
     "type": "minecraft:smithing_transform",

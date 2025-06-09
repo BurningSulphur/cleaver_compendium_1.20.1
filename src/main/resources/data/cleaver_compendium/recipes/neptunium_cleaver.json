@@ -3,6 +3,8 @@
     {
       "modid": "aquaculture",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:neptunium_cleaver_disable"
     }
   ],
     "type": "minecraft:crafting_shaped",

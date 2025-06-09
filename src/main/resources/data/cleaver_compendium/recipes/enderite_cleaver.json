@@ -3,6 +3,8 @@
     {
       "modid": "enderitemod",
       "type": "forge:mod_loaded"
+    },{
+      "type": "cleaver_compendium:enderite_cleaver_disable"
     }
   ],
     "type": "minecraft:smithing_transform",
