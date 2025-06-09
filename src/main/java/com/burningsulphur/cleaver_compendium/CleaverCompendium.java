@@ -1,8 +1,7 @@
 package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.quartz.QuartzToolType;
-import com.burningsulphur.cleaver_compendium.configs.OLeadCleaverConfig;
-import com.burningsulphur.cleaver_compendium.configs.SilverCleaverConfig;
+import com.burningsulphur.cleaver_compendium.configs.*;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.LeadCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
@@ -48,8 +47,7 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 
 import net.minecraftforge.fml.config.ModConfig;
 
-import static com.burningsulphur.cleaver_compendium.Config.OLeadCleaverDisable;
-import static com.burningsulphur.cleaver_compendium.Config.silverCleaverDisable;
+import static com.burningsulphur.cleaver_compendium.Config.*;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -191,50 +189,50 @@ public class CleaverCompendium
         if (SILVER_CLEAVER != null && !silverCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(SILVER_CLEAVER.get());
         }
-        if (NECROMIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (NECROMIUM_CLEAVER != null && !CCNecromiumCleaverDisable  && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(NECROMIUM_CLEAVER.get());
         }
-        if (ELECTRUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (ELECTRUM_CLEAVER != null && !OElectrumCleaverDisable  && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(ELECTRUM_CLEAVER.get());
         }
         if (LEAD_CLEAVER != null && !OLeadCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(LEAD_CLEAVER.get());
         }
-        if (ROSE_GOLD_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (ROSE_GOLD_CLEAVER != null && !DCRoseGoldCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(ROSE_GOLD_CLEAVER.get());
         }
-        if (ENDERITE_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (ENDERITE_CLEAVER != null && !EnderiteCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(ENDERITE_CLEAVER.get());
         }
-        if (GOBBER_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (GOBBER_CLEAVER != null && !GobberCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(GOBBER_CLEAVER.get());
         }
-        if (GOBBER_CLEAVER_NETHER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (GOBBER_CLEAVER_NETHER != null && !GobberNetherCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(GOBBER_CLEAVER_NETHER.get());
         }
-        if (GOBBER_CLEAVER_END != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (GOBBER_CLEAVER_END != null && !GobberEndCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(GOBBER_CLEAVER_END.get());
         }
         //batch 2
-        if (KOBOLD_IRON_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (KOBOLD_IRON_CLEAVER != null && !KoboldIronCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(KOBOLD_IRON_CLEAVER.get());
         }
-        if (NEPTUNIUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (NEPTUNIUM_CLEAVER != null && !NeptuniumCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(NEPTUNIUM_CLEAVER.get());
         }
-        if (CERTUS_QUARTZ_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (CERTUS_QUARTZ_CLEAVER != null && !CertusQuartzCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(CERTUS_QUARTZ_CLEAVER.get());
         }
-        if (NETHER_QUARTZ_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (NETHER_QUARTZ_CLEAVER != null && !NetherQuartzCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(NETHER_QUARTZ_CLEAVER.get());
         }
-        if (FLUIX_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (FLUIX_CLEAVER != null && !FluixCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(FLUIX_CLEAVER.get());
         }
-        if (DRACO_ARCANUS_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (DRACO_ARCANUS_CLEAVER != null && !DracoArcanusCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(DRACO_ARCANUS_CLEAVER.get());
         }
-        if (REINFORCED_DEORUM_CLEAVER != null && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+        if (REINFORCED_DEORUM_CLEAVER != null && !ReinforcedDeorumCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(REINFORCED_DEORUM_CLEAVER.get());
         }
 
@@ -263,6 +261,19 @@ public class CleaverCompendium
 
         CraftingHelper.register(new SilverCleaverConfig.Serializer());
         CraftingHelper.register(new OLeadCleaverConfig.Serializer());
+        CraftingHelper.register(new CCNecromiumCleaverConfig.Serializer());
+        CraftingHelper.register(new CertusQuartzCleaverConfig.Serializer());
+        CraftingHelper.register(new DCRoseGoldCleaverConfig.Serializer());
+        CraftingHelper.register(new DracoArcanusCleaverConfig.Serializer());
+        CraftingHelper.register(new EnderiteCleaverConfig.Serializer());
+        CraftingHelper.register(new FluixCleaverConfig.Serializer());
+        CraftingHelper.register(new GobberCleaverConfig.Serializer());
+        CraftingHelper.register(new GobberNetherCleaverConfig.Serializer());
+        CraftingHelper.register(new GobberEndCleaverConfig.Serializer());
+        CraftingHelper.register(new KoboldIronCleaverConfig.Serializer());
+        CraftingHelper.register(new NeptuniumCleaverConfig.Serializer());
+        CraftingHelper.register(new OElectrumCleaverConfig.Serializer());
+        CraftingHelper.register(new ReinforcedDeorumCleaverConfig.Serializer());
 
 
         // Register ourselves for server and other game events we are interested in
