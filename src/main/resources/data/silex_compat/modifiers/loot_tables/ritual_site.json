@@ -1,0 +1,30 @@
+{
+  "modifiers": [
+    {
+      "type": "entries",
+      "config": {
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "weight": 1,
+            "functions": [
+              {
+                "function": "minecraft:set_damage",
+                "damage": {
+                  "min": 0,
+                  "max": 0.5
+                }
+              }
+            ],
+            "name": "cleaver_compendium:silex_cleaver"
+          }
+        ],
+        "index": 0,
+        "replace": false
+      }
+
+    }
+  ],
+  "priority": "normal",
+  "selector": "sweety_archaeology:archaeology/ritual_site"
+}

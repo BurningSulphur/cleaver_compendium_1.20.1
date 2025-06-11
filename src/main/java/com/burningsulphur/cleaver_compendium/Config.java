@@ -78,6 +78,8 @@ public class Config
         ENDERITE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Enderite cleaver from Enderite Mod (Default: false)").define("enderite_cleaver_disable", false);
         KOBOLD_IRON_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Kobold Iron cleaver from Kobolds! (Default: false)").define("kobold_iron_cleaver_disable", false);
         NEPTUNIUM_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Neptunium cleaver from Aquaculture 2 (Default: false)").define("neptunium_cleaver_disable", false);
+
+        COMMON_BUILDER.comment("Currently obtaining a Silex cleaver can't be disabled as it's obtained through loot tables");
         SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
 
         //------------------------------------------------------------------------------------------------

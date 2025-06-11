@@ -17,6 +17,10 @@
   "item.cleaver_compendium.fluix_cleaver": "Fluix Cleaver",
   "item.cleaver_compendium.draco_arcanus_cleaver": "Draco Arcanus Cleaver",
   "item.cleaver_compendium.reinforced_deorum_cleaver": "Reinforced Deorum Cleaver",
+  "item.cleaver_compendium.embers_lead_cleaver": "Lead Cleaver",
+  "item.cleaver_compendium.embers_silver_cleaver": "Silver Cleaver",
+  "item.cleaver_compendium.dawnstone_cleaver": "Dawnstone Cleaver",
+  "item.cleaver_compendium.silex_cleaver": "Silex Cleaver",
 
   "aquaculture.neptunium_cleaver.tooltip.title": "Neptune's Arm",
   "aquaculture.neptunium_cleaver.tooltip.desc": "Allows you to throw further underwater"
