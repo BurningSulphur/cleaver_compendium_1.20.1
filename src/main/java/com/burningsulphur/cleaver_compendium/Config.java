@@ -34,6 +34,10 @@ public class Config
     public static ForgeConfigSpec.BooleanValue NEPTUNIUM_CLEAVER_DISABLE;
     public static ForgeConfigSpec.BooleanValue OELECTRUM_CLEAVER_DISABLE;
     public static ForgeConfigSpec.BooleanValue REINFORCED_DEORUM_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue DAWNSTONE_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue EMBERS_LEAD_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue EMBERS_SILVER_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue SILEX_CLEAVER_DISABLE;
 
     //------------------------------------------------------------------------------------------------------
 
@@ -64,11 +68,17 @@ public class Config
         GOBBER_NETHER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Nether Gobber cleaver (Default: false)").define("gobber_nether_cleaver_disable", false);
         GOBBER_END_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable End Gobber cleaver (Default: false)").define("gobber_end_cleaver_disable", false);
         COMMON_BUILDER.comment("");
+        COMMON_BUILDER.comment("Embers Rekindled");
+        EMBERS_LEAD_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Lead cleaver (Default: false)").define("elead_cleaver_disable", false);
+        EMBERS_SILVER_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silver cleaver (Default: false)").define("esilver_cleaver_disable", false);
+        DAWNSTONE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Dawnstone cleaver (Default: false)").define("dawnstone_cleaver_disable", false);
+        COMMON_BUILDER.comment("");
         COMMON_BUILDER.comment("Other mods");
         DCROSE_GOLD_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Rose Gold cleaver from Deeper Caves (Default: false)").define("dcrose_gold_cleaver_disable", false);
         ENDERITE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Enderite cleaver from Enderite Mod (Default: false)").define("enderite_cleaver_disable", false);
         KOBOLD_IRON_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Kobold Iron cleaver from Kobolds! (Default: false)").define("kobold_iron_cleaver_disable", false);
         NEPTUNIUM_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Neptunium cleaver from Aquaculture 2 (Default: false)").define("neptunium_cleaver_disable", false);
+        SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
 
         //------------------------------------------------------------------------------------------------
 
@@ -93,6 +103,10 @@ public class Config
     public static boolean OElectrumCleaverDisable;
     public static boolean OLeadCleaverDisable;
     public static boolean ReinforcedDeorumCleaverDisable;
+    public static boolean ELeadCleaverDisable;
+    public static boolean ESilverCleaverDisable;
+    public static boolean DawnstoneCleaverDisable;
+    public static boolean SilexCleaverDisable;
     //-------------------------------------------------------------------------------------------------
 
     @SubscribeEvent
@@ -116,6 +130,11 @@ public class Config
         NetherQuartzCleaverDisable = NETHER_QUARTZ_CLEAVER_DISABLE.get();
         OElectrumCleaverDisable = OELECTRUM_CLEAVER_DISABLE.get();
         ReinforcedDeorumCleaverDisable = REINFORCED_DEORUM_CLEAVER_DISABLE.get();
+
+        ELeadCleaverDisable = EMBERS_LEAD_CLEAVER_DISABLE.get();
+        ESilverCleaverDisable = EMBERS_SILVER_CLEAVER_DISABLE.get();
+        DawnstoneCleaverDisable = DAWNSTONE_CLEAVER_DISABLE.get();
+        SilexCleaverDisable = SILEX_CLEAVER_DISABLE.get();
         //-------------------------------------------------------------------------------------------
     }
 

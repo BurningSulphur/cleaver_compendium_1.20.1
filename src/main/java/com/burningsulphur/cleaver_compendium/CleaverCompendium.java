@@ -162,10 +162,23 @@ public class CleaverCompendium
             ? OPTIONAL_ITEMS.register("reinforced_deorum_cleaver", () -> new CleaverItem(2.0F, ModTiers.REINFORCED_DEORUM, 4.5F, -3.0F, new Item.Properties().durability(2561)))
             : null;
 
-    //------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //--------------Batch 3----------------------------------------------------------------------------------------------------------------------------------------------
+
+    public static final RegistryObject<Item> EMBER_LEAD_CLEAVER = ModList.get().isLoaded("embers")
+            ? OPTIONAL_ITEMS.register("embers_lead_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            : null;
+    public static final RegistryObject<Item> EMBER_SILVER_CLEAVER = ModList.get().isLoaded("embers")
+            ? OPTIONAL_ITEMS.register("embers_silver_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            : null;
+    public static final RegistryObject<Item> DAWNSTONE_CLEAVER = ModList.get().isLoaded("embers")
+            ? OPTIONAL_ITEMS.register("dawnstone_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            : null;
+    public static final RegistryObject<Item> SILEX_CLEAVER = ModList.get().isLoaded("sweety_archaeology")
+            ? OPTIONAL_ITEMS.register("silex_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            : null;
 
 
-    // add ember silver, dawnstone and silex
+    //--------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -236,6 +249,19 @@ public class CleaverCompendium
             event.accept(REINFORCED_DEORUM_CLEAVER.get());
         }
 
+        if (DAWNSTONE_CLEAVER != null && !DawnstoneCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(DAWNSTONE_CLEAVER.get());
+        }
+        if (EMBER_LEAD_CLEAVER != null && !ELeadCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(EMBER_LEAD_CLEAVER.get());
+        }
+        if (EMBER_SILVER_CLEAVER != null && !ESilverCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(EMBER_SILVER_CLEAVER.get());
+        }
+        if (SILEX_CLEAVER != null && !SilexCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(SILEX_CLEAVER.get());
+        }
+
     }
 
     public CleaverCompendium(FMLJavaModLoadingContext context)
@@ -262,6 +288,7 @@ public class CleaverCompendium
         CraftingHelper.register(new SilverCleaverConfig.Serializer());
         CraftingHelper.register(new OLeadCleaverConfig.Serializer());
         CraftingHelper.register(new CCNecromiumCleaverConfig.Serializer());
+        CraftingHelper.register(new NetherQuartzCleaverConfig.Serializer());
         CraftingHelper.register(new CertusQuartzCleaverConfig.Serializer());
         CraftingHelper.register(new DCRoseGoldCleaverConfig.Serializer());
         CraftingHelper.register(new DracoArcanusCleaverConfig.Serializer());
@@ -274,6 +301,10 @@ public class CleaverCompendium
         CraftingHelper.register(new NeptuniumCleaverConfig.Serializer());
         CraftingHelper.register(new OElectrumCleaverConfig.Serializer());
         CraftingHelper.register(new ReinforcedDeorumCleaverConfig.Serializer());
+        CraftingHelper.register(new DawnstoneCleaverConfig.Serializer());
+        CraftingHelper.register(new EmbersLeadCleaverConfig.Serializer());
+        CraftingHelper.register(new EmbersSilverCleaverConfig.Serializer());
+        CraftingHelper.register(new SilexCleaverConfig.Serializer());
 
 
         // Register ourselves for server and other game events we are interested in
