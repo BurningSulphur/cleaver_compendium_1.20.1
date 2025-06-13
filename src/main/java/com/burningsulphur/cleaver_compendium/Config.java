@@ -80,7 +80,7 @@ public class Config
         NEPTUNIUM_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Neptunium cleaver from Aquaculture 2 (Default: false)").define("neptunium_cleaver_disable", false);
 
         COMMON_BUILDER.comment("Currently obtaining a Silex cleaver can't be disabled as it's obtained through loot tables");
-        SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
+        SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Hide Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
 
         //------------------------------------------------------------------------------------------------
 

@@ -5,8 +5,13 @@ import com.burningsulphur.cleaver_compendium.configs.*;
 import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.LeadCleaverItem;
 import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
+import com.burningsulphur.cleaver_compendium.util.SilexCleaverItem;
 import com.mojang.logging.LogUtils;
+import com.rekindled.embers.Embers;
+import com.rekindled.embers.util.EmbersTiers;
 import com.stal111.forbidden_arcanus.common.item.ModTiers;
+import net.mcreator.sweetyarchaeology.item.SilexAxeItem;
+import net.mcreator.sweetyarchaeology.item.SilexPickaxeItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -103,7 +108,7 @@ public class CleaverCompendium
             : null;
 
     public static final RegistryObject<Item> ROSE_GOLD_CLEAVER = ModList.get().isLoaded("cavesanddepths") // can't import the tiers from it probably due to it being mcreator.
-            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(2F,Tiers.GOLD, 3F, -3.0F, new Item.Properties().durability(200)))
+            ? OPTIONAL_ITEMS.register("rose_gold_cleaver", () -> new CleaverItem(2F, Tiers.GOLD, 3F, -3.0F, new Item.Properties().durability(200)))
             : null;
 
 
@@ -165,16 +170,16 @@ public class CleaverCompendium
     //--------------Batch 3----------------------------------------------------------------------------------------------------------------------------------------------
 
     public static final RegistryObject<Item> EMBER_LEAD_CLEAVER = ModList.get().isLoaded("embers")
-            ? OPTIONAL_ITEMS.register("embers_lead_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            ? OPTIONAL_ITEMS.register("embers_lead_cleaver", () -> new CleaverItem(1.5F, EmbersTiers.LEAD, 2.0F, -3.0F, new Item.Properties().durability(168)))
             : null;
     public static final RegistryObject<Item> EMBER_SILVER_CLEAVER = ModList.get().isLoaded("embers")
-            ? OPTIONAL_ITEMS.register("embers_silver_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            ? OPTIONAL_ITEMS.register("embers_silver_cleaver", () -> new CleaverItem(1.5F, EmbersTiers.SILVER, 2.0F, -3.0F, new Item.Properties().durability(202)))
             : null;
     public static final RegistryObject<Item> DAWNSTONE_CLEAVER = ModList.get().isLoaded("embers")
-            ? OPTIONAL_ITEMS.register("dawnstone_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            ? OPTIONAL_ITEMS.register("dawnstone_cleaver", () -> new CleaverItem(1.75F, EmbersTiers.DAWNSTONE, 2.5F, -3.0F, new Item.Properties().durability(644)))
             : null;
     public static final RegistryObject<Item> SILEX_CLEAVER = ModList.get().isLoaded("sweety_archaeology")
-            ? OPTIONAL_ITEMS.register("silex_cleaver", () -> new CleaverItem(2.0F, Tiers.GOLD, 4.5F, -3.0F, new Item.Properties().durability(2561)))
+            ? OPTIONAL_ITEMS.register("silex_cleaver", () -> new SilexCleaverItem())
             : null;
 
 

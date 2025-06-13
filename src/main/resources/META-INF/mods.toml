@@ -140,6 +140,13 @@ versionRange="[1.20.1-2.2.6,)"
 ordering="AFTER"
 side="BOTH"
 
+[[dependencies."${mod_id}"]]
+modId="sweety_archaeology"
+mandatory=false
+versionRange="[1.0.9,)"
+ordering="AFTER"
+side="BOTH"
+
 
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

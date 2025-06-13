@@ -178,6 +178,8 @@ dependencies {
     implementation fg.deobf("curse.maven:aquaculture-60028:6296111")
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:6605410")
     implementation fg.deobf("curse.maven:forbidden-arcanus-309858:5198323")
+    implementation fg.deobf("curse.maven:sweety-archeo-1138355:6407628")
+    implementation fg.deobf("curse.maven:embers-rekindled-300777:6386899")
 
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
