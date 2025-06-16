@@ -29,8 +29,12 @@ public class FluixCleaverItem extends CleaverItem{
         super(1.5F, FluixToolType.FLUIX.getToolTier(), 3.4F, -3.0F, props);
     }
 
-    public int getIntrinsicEnchantLevel(ItemStack stack, Enchantment enchantment) {
-        return enchantment == Enchantments.MOB_LOOTING ? 1 : 0;
+    @Override
+    public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {
+        if (enchantment.equals(Enchantments.MOB_LOOTING)) {
+            return Math.max(1, super.getEnchantmentLevel(stack, Enchantments.MOB_LOOTING));
+        }
+        return super.getEnchantmentLevel(stack, enchantment);
     }
 
     @Override
@@ -43,6 +47,19 @@ public class FluixCleaverItem extends CleaverItem{
     public boolean isFoil(ItemStack stack) {
         return true;
     }
+    /*
+    public int getIntrinsicEnchantLevel(ItemStack stack, Enchantment enchantment) {
+        return enchantment == Enchantments.MOB_LOOTING ? 1 : 0;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents,
+                                TooltipFlag isAdvanced) {
+        tooltipComponents.add(GuiText.IntrinsicEnchant.text(Enchantments.MOB_LOOTING.getFullname(1)));
+    }
+     */
+
+
 }
 
 
