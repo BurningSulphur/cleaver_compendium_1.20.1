@@ -1,0 +1,32 @@
+{
+  "conditions": [
+    {
+      "modid": "phantasm",
+      "type": "forge:mod_loaded"
+    },
+    {
+      "type": "cleaver_compendium:crystalline_cleaver_disable"
+    }
+  ],
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+  "key": {
+    "#": {
+      "item": "phantasm:crystal_block"
+    },
+    "@": {
+      "item": "minecraft:stick"
+    },
+    "V": {
+      "item": "phantasm:void_crystal_block"
+    }
+  },
+    "pattern": [
+      "V#",
+      "V@"
+    ],
+  "result": {
+    "item": "cleaver_compendium:crystalline_cleaver"
+  },
+    "show_notification": true
+}

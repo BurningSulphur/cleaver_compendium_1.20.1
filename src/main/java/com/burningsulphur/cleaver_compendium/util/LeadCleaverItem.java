@@ -15,8 +15,8 @@ public class LeadCleaverItem extends CleaverItem {
     private static final ResourceLocation STUNNING_ID = new ResourceLocation("oreganized", "stunning");
 
     public LeadCleaverItem(Properties props) {
-        super(1.5F, OItemTiers.LEAD, 2F, -3.0F, props);
-    }
+        super(1.5F, OItemTiers.LEAD, 1.5F, -3.0F, props);
+    }                                                //means 4
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {

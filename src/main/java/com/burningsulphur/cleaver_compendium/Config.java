@@ -38,6 +38,7 @@ public class Config
     public static ForgeConfigSpec.BooleanValue EMBERS_LEAD_CLEAVER_DISABLE;
     public static ForgeConfigSpec.BooleanValue EMBERS_SILVER_CLEAVER_DISABLE;
     public static ForgeConfigSpec.BooleanValue SILEX_CLEAVER_DISABLE;
+    public static ForgeConfigSpec.BooleanValue CRYSTALLINE_CLEAVER_DISABLE;
 
     //------------------------------------------------------------------------------------------------------
 
@@ -78,8 +79,9 @@ public class Config
         ENDERITE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Enderite cleaver from Enderite Mod (Default: false)").define("enderite_cleaver_disable", false);
         KOBOLD_IRON_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Kobold Iron cleaver from Kobolds! (Default: false)").define("kobold_iron_cleaver_disable", false);
         NEPTUNIUM_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Neptunium cleaver from Aquaculture 2 (Default: false)").define("neptunium_cleaver_disable", false);
+        CRYSTALLINE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Crystalline cleaver from End's Phantasm (Default: false)").define("crystalline_cleaver_disable", false);
 
-        COMMON_BUILDER.comment("Currently obtaining a Silex cleaver can't be disabled as it's obtained through loot tables");
+        COMMON_BUILDER.comment("Currently obtaining a Silex cleaver can't be disabled safely on my end as it's obtained through loot tables and some users won't have the mod installed. You can disable it with a datapack in your modpack");
         SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Hide Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
 
         //------------------------------------------------------------------------------------------------
@@ -109,6 +111,7 @@ public class Config
     public static boolean ESilverCleaverDisable;
     public static boolean DawnstoneCleaverDisable;
     public static boolean SilexCleaverDisable;
+    public static boolean CrystallineCleaverDisable;
     //-------------------------------------------------------------------------------------------------
 
     @SubscribeEvent
@@ -137,6 +140,7 @@ public class Config
         ESilverCleaverDisable = EMBERS_SILVER_CLEAVER_DISABLE.get();
         DawnstoneCleaverDisable = DAWNSTONE_CLEAVER_DISABLE.get();
         SilexCleaverDisable = SILEX_CLEAVER_DISABLE.get();
+        CrystallineCleaverDisable = CRYSTALLINE_CLEAVER_DISABLE.get();
         //-------------------------------------------------------------------------------------------
     }
 

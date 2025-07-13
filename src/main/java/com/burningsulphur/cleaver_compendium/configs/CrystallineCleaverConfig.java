@@ -1,19 +1,18 @@
 package com.burningsulphur.cleaver_compendium.configs;
 
 
-import com.google.gson.JsonObject;
 import com.burningsulphur.cleaver_compendium.CleaverCompendium;
 import com.burningsulphur.cleaver_compendium.Config;
-
+import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
-public class SilverCleaverConfig implements ICondition {
+public class CrystallineCleaverConfig implements ICondition {
 
     private final ResourceLocation location;
 
-    public SilverCleaverConfig(ResourceLocation location) {
+    public CrystallineCleaverConfig(ResourceLocation location) {
         this.location = location;
     }
 
@@ -23,16 +22,16 @@ public class SilverCleaverConfig implements ICondition {
     }
 
     @Override
-    public boolean test(ICondition.IContext context) {
-        return !Config.SILVER_CLEAVER_DISABLE.get(); //<---- Update this line here
+    public boolean test(IContext context) {
+        return !Config.CRYSTALLINE_CLEAVER_DISABLE.get(); //<---- Update this line here
     }
 
-    public static class Serializer implements IConditionSerializer<SilverCleaverConfig> {
+    public static class Serializer implements IConditionSerializer<CrystallineCleaverConfig> {
 
         private final ResourceLocation location;
 
         public Serializer() {
-            this.location = new ResourceLocation(CleaverCompendium.MOD_ID, "silver_cleaver_disable"); //<---- Update this line here
+            this.location = new ResourceLocation(CleaverCompendium.MOD_ID, "crystalline_cleaver_disable"); // <----------update this line here
         }
 
         @Override
@@ -41,12 +40,12 @@ public class SilverCleaverConfig implements ICondition {
         }
 
         @Override
-        public SilverCleaverConfig read(JsonObject json) {
-            return new SilverCleaverConfig(this.location);
+        public CrystallineCleaverConfig read(JsonObject json) {
+            return new CrystallineCleaverConfig(this.location);
         }
 
         @Override
-        public void write(JsonObject json, SilverCleaverConfig value) {
+        public void write(JsonObject json, CrystallineCleaverConfig value) {
 
         }
     }

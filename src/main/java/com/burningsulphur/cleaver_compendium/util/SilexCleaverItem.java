@@ -14,8 +14,8 @@ import net.yirmiri.dungeonsdelight.common.item.CleaverItem;
 
 public class SilexCleaverItem extends CleaverItem {
     public SilexCleaverItem() {
-        super(0.75F, new SilexTier(), -5F, -3.0F, new Item.Properties().durability(48));
-    }
+        super(0.75F, new SilexTier(), -4F, -3.0F, new Item.Properties().durability(48));
+    }                                               //means 3
 
     private static class SilexTier implements Tier {
         public int getUses() {

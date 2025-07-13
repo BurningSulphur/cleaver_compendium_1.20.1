@@ -26,8 +26,8 @@ import appeng.core.localization.GuiText;
 public class FluixCleaverItem extends CleaverItem{
 
     public FluixCleaverItem(Properties props) {
-        super(1.5F, FluixToolType.FLUIX.getToolTier(), 3.4F, -3.0F, props);
-    }
+        super(1.5F, FluixToolType.FLUIX.getToolTier(), 2F, -3.0F, props);
+    }                                                                  //means 5.4
 
     @Override
     public int getEnchantmentLevel(ItemStack stack, Enchantment enchantment) {

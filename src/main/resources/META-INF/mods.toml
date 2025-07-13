@@ -147,6 +147,13 @@ versionRange="[1.0.9,)"
 ordering="AFTER"
 side="BOTH"
 
+[[dependencies."${mod_id}"]]
+modId="phantasm"
+mandatory=false
+versionRange="[1.0.1,)"
+ordering="AFTER"
+side="BOTH"
+
 
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

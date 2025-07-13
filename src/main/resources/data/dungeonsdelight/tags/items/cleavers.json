@@ -1,0 +1,88 @@
+{
+  "values": [
+    {
+      "id": "cleaver_compendium:example_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:silver_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:necromium_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:electrum_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:lead_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:rose_gold_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:gobber2_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:gobber2_cleaver_nether",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:gobber2_cleaver_end",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:kobold_iron_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:neptunium_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:certus_quartz_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:nether_quartz_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:fluix_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:draco_arcanus_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:reinforced_deorum_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:embers_lead_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:embers_silver_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:dawnstone_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:silex_cleaver",
+      "required": false
+    },
+    {
+      "id": "cleaver_compendium:crystalline_cleaver",
+      "required": false
+    }
+  ]
+}
