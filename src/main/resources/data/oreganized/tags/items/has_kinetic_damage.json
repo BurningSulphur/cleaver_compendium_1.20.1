@@ -1,5 +1,8 @@
 {
   "values": [
-    "cleaver_compendium:electrum_cleaver"
+    {
+      "id": "cleaver_compendium:electrum_cleaver",
+      "required": false
+    }
   ]
 }

@@ -83,6 +83,10 @@
     {
       "id": "cleaver_compendium:crystalline_cleaver",
       "required": false
+    },
+    {
+      "id": "cleaver_compendium:soul_stained_steel_cleaver",
+      "required": false
     }
   ]
 }

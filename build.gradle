@@ -153,6 +153,25 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+    maven {
+        // location of the maven that hosts JEI files before January 2023
+        name = "Progwml6's maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+
+
+
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
     // flatDir {
@@ -181,6 +200,13 @@ dependencies {
     implementation fg.deobf("curse.maven:sweety-archeo-1138355:6407628")
     implementation fg.deobf("curse.maven:embers-rekindled-300777:6386899")
     implementation fg.deobf("curse.maven:phantasm-565254:6149582")
+    implementation fg.deobf("curse.maven:malum-484064:6646111")
+    implementation fg.deobf("curse.maven:lodestone-616457:6213794")
+
+
+    //JEI INTEGRATION
+    compileOnly fg.deobf("curse.maven:jei-238222:${jei_version}")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:${jei_version}")
 
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings

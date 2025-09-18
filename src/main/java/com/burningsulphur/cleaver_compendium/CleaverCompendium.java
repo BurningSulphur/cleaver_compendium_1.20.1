@@ -2,10 +2,7 @@ package  com.burningsulphur.cleaver_compendium;
 
 import appeng.items.tools.quartz.QuartzToolType;
 import com.burningsulphur.cleaver_compendium.configs.*;
-import com.burningsulphur.cleaver_compendium.util.FluixCleaverItem;
-import com.burningsulphur.cleaver_compendium.util.LeadCleaverItem;
-import com.burningsulphur.cleaver_compendium.util.NeptuniumCleaverItem;
-import com.burningsulphur.cleaver_compendium.util.SilexCleaverItem;
+import com.burningsulphur.cleaver_compendium.util.*;
 import com.mojang.logging.LogUtils;
 import com.rekindled.embers.Embers;
 import com.rekindled.embers.util.EmbersTiers;
@@ -54,6 +51,7 @@ import com.teammetallurgy.aquaculture.api.AquacultureAPI;
 import net.minecraftforge.fml.config.ModConfig;
 
 import static com.burningsulphur.cleaver_compendium.Config.*;
+import static com.sammy.malum.registry.common.item.ItemTiers.ItemTierEnum.SOUL_STAINED_STEEL;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -187,6 +185,12 @@ public class CleaverCompendium
             ? OPTIONAL_ITEMS.register("crystalline_cleaver", () -> new CleaverItem(1.5F, net.lyof.phantasm.item.ModTiers.CRYSTALLINE, 3.0F, -3.0F, new Item.Properties().durability(312)))
             : null;                                                                                                                                      //means 5
 
+    //--------------Batch 5----------------------------------------------------------------------------------------------------------------------------------------------
+
+    public static final RegistryObject<Item> SOUL_STAINED_STEEL_CLEAVER = ModList.get().isLoaded("malum")
+            ? OPTIONAL_ITEMS.register("soul_stained_steel_cleaver", () -> new SoulStainedSteelCleaverItem(1.5F, SOUL_STAINED_STEEL, 5.0F, -3.0F, 3, new Item.Properties().durability(312)))
+            : null;
+
     //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
@@ -203,12 +207,12 @@ add to the config bit below that
 then add the item models
 then add the textures
 then add to the lang file
-then add any relevant tags
+then add any relevant tags, especially the cleaver tag
 then add the recipes
 
 check the damage stats
 
-add jei compat
+add jei compat (what?)
 
  */
 
@@ -295,6 +299,9 @@ add jei compat
         if (CRYSTALLINE_CLEAVER != null && !CrystallineCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
             event.accept(CRYSTALLINE_CLEAVER.get());
         }
+        if (SOUL_STAINED_STEEL_CLEAVER != null && !SoulStainedSteelCleaverDisable && event.getTab() == CLEAVER_COMPENDIUM_TAB.get()) {
+            event.accept(SOUL_STAINED_STEEL_CLEAVER.get());
+        }
 
 
     }
@@ -341,6 +348,7 @@ add jei compat
         CraftingHelper.register(new EmbersSilverCleaverConfig.Serializer());
         CraftingHelper.register(new SilexCleaverConfig.Serializer());
         CraftingHelper.register(new CrystallineCleaverConfig.Serializer());
+        CraftingHelper.register(new SoulStainedSteelCleaverConfig.Serializer());
 
 
         // Register ourselves for server and other game events we are interested in
