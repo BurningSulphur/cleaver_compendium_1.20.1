@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "modid": "malum",
+      "type": "forge:mod_loaded"
+    },
+    {
+      "type": "cleaver_compendium:soul_stained_steel_cleaver_disable"
+    }
+  ],
+    "type": "minecraft:crafting_shaped",
+    "category": "equipment",
+    "key": {
+      "#": {
+        "item": "malum:soul_stained_steel_ingot"
+      },
+      "@": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "##",
+      "#@"
+    ],
+  "result": {
+    "item": "cleaver_compendium:soul_stained_steel_cleaver"
+  },
+    "show_notification": true
+}

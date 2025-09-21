@@ -95,7 +95,7 @@ public class CleaverCompendium
             : null;                                                                                                             //means 6 attack
 
     public static final RegistryObject<Item> ELECTRUM_CLEAVER = ModList.get().isLoaded("oreganized")
-            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.75F,OItemTiers.ELECTRUM, 0F, -2.5F, new Item.Properties().durability(1561)))
+            ? OPTIONAL_ITEMS.register("electrum_cleaver", () -> new CleaverItem(1.75F,OItemTiers.ELECTRUM, 2F, -2.5F, new Item.Properties().durability(1561)))
             : null;                                                                                                          //means 6
 
     public static final RegistryObject<Item> LEAD_CLEAVER = ModList.get().isLoaded("oreganized")
@@ -188,7 +188,7 @@ public class CleaverCompendium
     //--------------Batch 5----------------------------------------------------------------------------------------------------------------------------------------------
 
     public static final RegistryObject<Item> SOUL_STAINED_STEEL_CLEAVER = ModList.get().isLoaded("malum")
-            ? OPTIONAL_ITEMS.register("soul_stained_steel_cleaver", () -> new SoulStainedSteelCleaverItem(1.5F, SOUL_STAINED_STEEL, 5.0F, -3.0F, 3, new Item.Properties().durability(312)))
+            ? OPTIONAL_ITEMS.register("soul_stained_steel_cleaver", () -> new SoulStainedSteelCleaverItem(1.5F, SOUL_STAINED_STEEL, -1.0F, -3.0F, 3, new Item.Properties().durability(312)))
             : null;
 
     //--------------------------------------------------------------------------------------------------------------------------------------

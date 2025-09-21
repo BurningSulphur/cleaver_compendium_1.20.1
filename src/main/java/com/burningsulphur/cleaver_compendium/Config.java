@@ -81,7 +81,7 @@ public class Config
         KOBOLD_IRON_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Kobold Iron cleaver from Kobolds! (Default: false)").define("kobold_iron_cleaver_disable", false);
         NEPTUNIUM_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Neptunium cleaver from Aquaculture 2 (Default: false)").define("neptunium_cleaver_disable", false);
         CRYSTALLINE_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Crystalline cleaver from End's Phantasm (Default: false)").define("crystalline_cleaver_disable", false);
-        SOUL_STAINED_STEEL_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Soul Stained Steel cleaver from Malum (Default: false)").define("soul_stained_steel_cleaver_disable", false);
+        SOUL_STAINED_STEEL_CLEAVER_DISABLE = COMMON_BUILDER.comment("Disable Soulstained Steel cleaver from Malum (Default: false)").define("soul_stained_steel_cleaver_disable", false);
 
         COMMON_BUILDER.comment("Currently obtaining a Silex cleaver can't be disabled safely on my end as it's obtained through loot tables and some users won't have the mod installed. You can disable it with a datapack in your modpack");
         SILEX_CLEAVER_DISABLE = COMMON_BUILDER.comment("Hide Silex cleaver from Sweety's Archaeology (Default: false)").define("silex_cleaver_disable", false);
